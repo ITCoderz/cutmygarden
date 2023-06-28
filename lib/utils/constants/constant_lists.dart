@@ -1,138 +1,133 @@
-// import 'package:get/get.dart';
-// import 'package:karaoke_songbook/screens/home/recieved_requests/view/revieved_requests_screen.dart';
-//
-// import '../../generated/assets.dart';
-// import '../../models/drawer_model.dart';
-// import '../../models/requests_model.dart';
-// import '../../screens/home/approved_requests/view/approved_requests_screen.dart';
-// import '../../screens/home/venue_selection/view/venue_select_screen.dart';
-//
-// class ConstantLists {
-//   ConstantLists._();
-//
-//   ///
-//   static var countriesList = [
-//     'Germany',
-//     'England',
-//     'France',
-//   ];
-//
-//   static var regionList = [
-//     'Region 1',
-//     'Region 2',
-//     'Region 3',
-//     'Region 4',
-//     'Region 5',
-//   ];
-//   static var citiesList = [
-//     'City 1',
-//     'City 2',
-//     'City 3',
-//     'City 4',
-//     'City 5',
-//   ];
-//   static var venuesList = [
-//     'Venue 1',
-//     'Venue 2',
-//     'Venue 3',
-//     'Venue 4',
-//     'Venue 5',
-//   ];
-//
-//   ///
-//
-//   static List<DrawerModel> drawerList = [
-//     DrawerModel(
-//       title: "Select Venue",
-//       onPressed: () {
-//         Get.offAll(
-//           () => VenueSelectScreen(),
-//           transition: Transition.fadeIn,
-//         );
-//       },
-//     ),
-//     DrawerModel(
-//         title: "Received",
-//         onPressed: () {
-//           Get.offAll(
-//             () => ReceivedRequestsScreen(),
-//             transition: Transition.fadeIn,
-//           );
-//         }),
-//     DrawerModel(
-//         title: "Approved",
-//         onPressed: () {
-//           Get.offAll(
-//             () => ApprovedRequestScreen(),
-//             transition: Transition.fadeIn,
-//           );
-//         }),
-//     DrawerModel(title: "Banned", onPressed: () {}),
-//     DrawerModel(title: "Notifications", onPressed: () {}),
-//   ];
-//
-//   ///
-//   static List<String> decliningReasonList = [
-//     "Time up",
-//     "Technical Problem",
-//     "Another person has already requested"
-//   ];
-//
-//   ///
-//   static List<RequestModel> requestModelList = [
-//     RequestModel(
-//       songName: "Beat It",
-//       songImage: Assets.songImagesSongImageOne,
-//       songOriginalSinger: "Michael Jackson",
-//       karaokeSinger: "Len Light",
-//       requestedBy: "Len Light",
-//       requestedTime: "2 mins ago",
-//       requesterImage: Assets.personImagePersonImage,
-//     ),
-//     RequestModel(
-//       songName: "Beat It",
-//       songImage: Assets.songImagesSongImageTwo,
-//       songOriginalSinger: "Michael Jackson",
-//       karaokeSinger: "Len Light",
-//       requestedBy: "Len Light",
-//       requestedTime: "2 mins ago",
-//       requesterImage: Assets.personImagePersonImage,
-//     ),
-//     RequestModel(
-//       songName: "Beat It",
-//       songImage: Assets.songImagesSongImageThree,
-//       songOriginalSinger: "Michael Jackson",
-//       karaokeSinger: "Len Light",
-//       requestedBy: "Len Light",
-//       requestedTime: "2 mins ago",
-//       requesterImage: Assets.personImagePersonImage,
-//     ),
-//     RequestModel(
-//       songName: "Beat It",
-//       songImage: Assets.songImagesSongImageFour,
-//       songOriginalSinger: "Michael Jackson",
-//       karaokeSinger: "Len Light",
-//       requestedBy: "Len Light",
-//       requestedTime: "2 mins ago",
-//       requesterImage: Assets.personImagePersonImage,
-//     ),
-//     RequestModel(
-//       songName: "Beat It",
-//       songImage: Assets.songImagesSongImageFive,
-//       songOriginalSinger: "Michael Jackson",
-//       karaokeSinger: "Len Light",
-//       requestedBy: "Len Light",
-//       requestedTime: "2 mins ago",
-//       requesterImage: Assets.personImagePersonImage,
-//     ),
-//     RequestModel(
-//       songName: "Beat It",
-//       songImage: Assets.songImagesSongImageFour,
-//       songOriginalSinger: "Michael Jackson",
-//       karaokeSinger: "Len Light",
-//       requestedBy: "Len Light",
-//       requestedTime: "2 mins ago",
-//       requesterImage: Assets.personImagePersonImage,
-//     ),
-//   ];
-// }
+import '../../models/bookings_model.dart';
+import '../../models/data_model.dart';
+import '../../models/gardeneers_model.dart';
+import '../../models/offline_enquires.dart';
+
+class ConstantLists {
+  ConstantLists._();
+
+  static List<DataModel> dataList = [
+    DataModel(
+      dataType: "Bookings",
+      dataValue: "721",
+    ),
+    DataModel(
+      dataType: "Revenue",
+      dataValue: "£3.000,000",
+    ),
+    DataModel(
+      dataType: "Enquires",
+      dataValue: "120",
+    ),
+    DataModel(
+      dataType: "Dispute",
+      dataValue: "2",
+    ),
+  ];
+  static List<GardenersModel> gardenersList = [
+    GardenersModel(
+        gardener: "Clive Sailsman",
+        location: "Manchester",
+        availability: "Mon - Sat",
+        compliance: "Complete"),
+    GardenersModel(
+        gardener: "Clive Sailsman",
+        location: "Manchester",
+        availability: "Mon - Sat",
+        compliance: "Complete"),
+    GardenersModel(
+        gardener: "Clive Sailsman",
+        location: "Manchester",
+        availability: "Mon - Sat",
+        compliance: "Complete"),
+  ];
+  static List<BookingModel> bookingList = [
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "complete"),
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "pending"),
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "waiting"),
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "complete"),
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "pending"),
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "complete"),
+    BookingModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        city: "Wolverhampton",
+        gardener: "Clive Sailsman",
+        status: "pending"),
+  ];
+
+  static List<OfflineEnquiresModel> offlineEnquiresList = [
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+    OfflineEnquiresModel(
+        name: "Theodore Hoffman",
+        date: "01/01/01",
+        time: "12:00pm",
+        location: "Birmingham"),
+  ];
+}

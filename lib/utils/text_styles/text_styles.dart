@@ -21,7 +21,7 @@ class CCustomTextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 15,
     fontFamily: "Inter",
-    color: CColors.sideMenuColor,
+    color: CColors.primaryColor,
   );
   static const TextStyle black620 = TextStyle(
     fontWeight: FontWeight.w600,
@@ -41,6 +41,12 @@ class CCustomTextStyles {
     fontFamily: "Inter",
     color: CColors.blackColor,
   );
+  static const TextStyle white613 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 13,
+    fontFamily: "Inter",
+    color: CColors.whiteColor,
+  );
   static const TextStyle black609 = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 9,
@@ -50,6 +56,11 @@ class CCustomTextStyles {
   static const TextStyle black409 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 9,
+    fontFamily: "Inter",
+    color: CColors.blackColor,
+  ); static const TextStyle black410= TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 10,
     fontFamily: "Inter",
     color: CColors.blackColor,
   );

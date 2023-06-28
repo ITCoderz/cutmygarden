@@ -5,10 +5,14 @@ class CColors {
 
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color blackColor = Color(0xFF000000);
-  static const Color sideMenuColor = Color(0xFF30524E);
+  static const Color primaryColor = Color(0xFF30524E);
   static const Color cardColor = Color(0xFFAECAC7);
   static const Color imagePlaceHolderColor = Color(0xFFD9D9D9);
-  static const Color primaryColor = Color(0xFFFFD030);
+  static const Color whiteAccent = Color(0xFFF7F9FB);
+  static const Color greenAccent = Color(0xFFBAEDBD);
+  static const Color yellowAccent = Color(0xFFFBD267);
+  static const Color pinkAccent = Color(0xFFFFA0A0);
+
   static const Color redColor = Color(0xFFFF3030);
   static const Color dividerColor = Color(0xFF494949);
   static const Color dividerColorTwo = Color(0xFF777777);

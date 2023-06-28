@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String dashboardAppLogo = 'assets/images/dashboard/app_logo.png';
+  static const String dashboardWeatherWidget = 'assets/images/dashboard/weather_widget.svg';
   static const String interInterBold = 'assets/fonts/inter/Inter-Bold.ttf';
   static const String interInterLight = 'assets/fonts/inter/Inter-Light.ttf';
   static const String interInterMedium = 'assets/fonts/inter/Inter-Medium.ttf';

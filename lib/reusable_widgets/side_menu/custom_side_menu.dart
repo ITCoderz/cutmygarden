@@ -22,23 +22,44 @@ class CustomSideMenu extends StatefulWidget {
 }
 
 class _CustomSideMenuState extends State<CustomSideMenu> {
+  bool isCollapsed = false;
+
+  modeChanged(SideMenuDisplayMode mode) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (mode.index == 1) {
+        setState(() {
+          isCollapsed = false;
+        });
+      } else {
+        setState(() {
+          isCollapsed = true;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SideMenu(
       controller: widget.sideMenu,
       showToggle: true,
-collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
+      collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
+      onDisplayModeChanged: (mode) {
+        modeChanged(mode);
+      },
       style: SideMenuStyle(
-        backgroundColor: CColors.sideMenuColor,
+        backgroundColor: CColors.primaryColor,
         displayMode: SideMenuDisplayMode.auto,
         hoverColor: Colors.blue[100],
         selectedHoverColor: Color.alphaBlend(
-            Color.fromRGBO(
-                Theme.of(context).colorScheme.surfaceTint.red,
-                Theme.of(context).colorScheme.surfaceTint.green,
-                Theme.of(context).colorScheme.surfaceTint.blue,
-                0.08),
-            Colors.blue[100]!),
+          Color.fromRGBO(
+            Theme.of(context).colorScheme.surfaceTint.red,
+            Theme.of(context).colorScheme.surfaceTint.green,
+            Theme.of(context).colorScheme.surfaceTint.blue,
+            0.08,
+          ),
+          Colors.blue[100]!,
+        ),
         itemHeight: 50,
         itemInnerSpacing: 10,
         itemBorderRadius: const BorderRadius.only(
@@ -51,10 +72,11 @@ collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
         ),
         selectedColor: CColors.whiteColor,
         selectedTitleTextStyle: CCustomTextStyles.sideMenu515,
-        selectedIconColor: CColors.sideMenuColor,
+        selectedIconColor: CColors.primaryColor,
         unselectedIconColor: CColors.whiteColor,
         unselectedTitleTextStyle: CCustomTextStyles.white515,
         compactSideMenuWidth: 70,
+        iconSize: 17,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(
@@ -70,35 +92,42 @@ collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
       title: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            Assets.dashboardAppLogo,
-          ),
+          isCollapsed
+              ? const SizedBox.shrink()
+              : Image.asset(
+                  Assets.dashboardAppLogo,
+                ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                height: 70,
-                width: 70,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: CColors.whiteColor,
+              isCollapsed ? 10.pw : const SizedBox.shrink(),
+              Flexible(
+                child: Container(
+                  height: 70,
+                  width: 70,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: CColors.whiteColor,
+                  ),
                 ),
               ),
               10.pw,
-              const Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Theodore Hoffman",
-                    style: CCustomTextStyles.white515,
-                  ),
-                  Text(
-                    "Founder",
-                    style: CCustomTextStyles.white514,
-                  ),
-                ],
-              ),
+              isCollapsed
+                  ? const SizedBox.shrink()
+                  : const Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Theodore Hoffman",
+                          style: CCustomTextStyles.white515,
+                        ),
+                        Text(
+                          "Founder",
+                          style: CCustomTextStyles.white514,
+                        ),
+                      ],
+                    ),
             ],
           ),
           30.ph,
@@ -203,21 +232,25 @@ collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
             FontAwesomeIcons.gear,
           ),
         ),
-        // SideMenuItem(
-        //   builder: (BuildContext context, SideMenuDisplayMode mode) {
-        //     return Align(
-        //       alignment: Alignment.centerLeft,
-        //       child: IconButton(
-        //         onPressed: () {},
-        //         icon: const FaIcon(
-        //           FontAwesomeIcons.arrowRightToBracket,
-        //           color: CColors.whiteColor,
-        //         ),
-        //       ),
-        //     );
-        //   },
-        //   priority: 12,
-        // ),
+        isCollapsed
+            ? const SideMenuItem(
+                priority: 10,
+                icon: Icon(
+                  FontAwesomeIcons.arrowRightToBracket,
+                ),
+              )
+            : SideMenuItem(
+                priority: 10,
+                builder: (context, mode) {
+                  return const SizedBox.shrink();
+                },
+              ),
+        SideMenuItem(
+          priority: 11,
+          builder: (context, mode) {
+            return const SizedBox.shrink();
+          },
+        ),
       ],
       footer: LogOutButton(
         height: 50,
