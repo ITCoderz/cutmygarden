@@ -1,7 +1,10 @@
+import '../../models/all_enquiries_model.dart';
 import '../../models/bookings_model.dart';
 import '../../models/data_model.dart';
 import '../../models/gardeneers_model.dart';
 import '../../models/offline_enquires.dart';
+import '../../models/services_names_model.dart';
+import '../colors/app_colors.dart';
 
 class ConstantLists {
   ConstantLists._();
@@ -129,5 +132,111 @@ class ConstantLists {
         date: "01/01/01",
         time: "12:00pm",
         location: "Birmingham"),
+  ];
+  static List<AllEnquiriesModel> allEnquiresList = [
+    AllEnquiriesModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      address: "1 Fieldhouse Road",
+      postCode: "WV4 7ST",
+      city: "Wolverhampton",
+      serviceOne: "Lawn cutting",
+      serviceTwo: "Weeding",
+      estValue: "£55",
+      areaManager: "Clive Sailsman",
+      status: "complete",
+    ),
+    AllEnquiriesModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      address: "1 Fieldhouse Road",
+      postCode: "WV4 7ST",
+      city: "Wolverhampton",
+      serviceOne: "Lawn cutting",
+      serviceTwo: "Weeding",
+      estValue: "£55",
+      areaManager: "Clive Sailsman",
+      status: "waiting",
+    ),
+    AllEnquiriesModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      address: "1 Fieldhouse Road",
+      postCode: "WV4 7ST",
+      city: "Wolverhampton",
+      serviceOne: "Lawn cutting",
+      serviceTwo: "Weeding",
+      estValue: "£55",
+      areaManager: "Clive Sailsman",
+      status: "pending",
+    ),
+    AllEnquiriesModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      address: "1 Fieldhouse Road",
+      postCode: "WV4 7ST",
+      city: "Wolverhampton",
+      serviceOne: "Lawn cutting",
+      serviceTwo: "Weeding",
+      estValue: "£55",
+      areaManager: "Clive Sailsman",
+      status: "complete",
+    ),
+    AllEnquiriesModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      address: "1 Fieldhouse Road",
+      postCode: "WV4 7ST",
+      city: "Wolverhampton",
+      serviceOne: "Lawn cutting",
+      serviceTwo: "Weeding",
+      estValue: "£55",
+      areaManager: "Clive Sailsman",
+      status: "waiting",
+    ),
+    AllEnquiriesModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      address: "1 Fieldhouse Road",
+      postCode: "WV4 7ST",
+      city: "Wolverhampton",
+      serviceOne: "Lawn cutting",
+      serviceTwo: "Weeding",
+      estValue: "£55",
+      areaManager: "Clive Sailsman",
+      status: "pending",
+    ),
+  ];
+  static List<ServicesNames> servicesNamesList = [
+    ServicesNames(
+      serviceName: "Lawn Cutting",
+      containerColor: CColors.greenAccentTwo,
+    ),
+    ServicesNames(
+      serviceName: "Weeding",
+      containerColor: CColors.yellowAccentTwo,
+    ),
+    ServicesNames(
+      serviceName: "Waste Removal",
+      containerColor: CColors.redAccentColor,
+    ),
+    ServicesNames(
+      serviceName: "Hedge Cutting",
+      containerColor: CColors.purpleColor,
+    ),
+    ServicesNames(
+      serviceName: "Jet Washing",
+      containerColor: CColors.blueColor,
+    ),
+    ServicesNames(
+      serviceName: "Edging",
+      containerColor: CColors.brownColor,
+    ),
   ];
 }

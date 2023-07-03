@@ -2,6 +2,8 @@ import 'package:cut_my_garden/screens/dashboard/view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import '../../../reusable_widgets/side_menu/custom_side_menu.dart';
+import '../../bookings/view/booking_screen.dart';
+import '../../enquiries/view/equiries_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -34,24 +36,8 @@ class _LandingScreenState extends State<LandingScreen> {
               controller: pageController,
               children: [
                 const DashBoardScreen(),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Users',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Files',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
+                const BookingScreen(),
+                const EnquiriesScreen(),
                 Container(
                   color: Colors.white,
                   child: const Center(

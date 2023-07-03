@@ -9,7 +9,11 @@ import 'package:cut_my_garden/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../reusable_widgets/background_container_widgets/gardener_background.dart';
+import '../../../reusable_widgets/background_container_widgets/custom_widget_background.dart';
 import '../../../reusable_widgets/buttons/primary_button.dart';
+import '../../../reusable_widgets/tables/bookings/booking_dashboard/dashboard_booking_table.dart';
+import '../../../reusable_widgets/tables/enquiries/enquiries_dashboard/offline_enquiries_table.dart';
 import '../../../reusable_widgets/text_fields/search_field.dart';
 import '../../../utils/enums/screen_enums.dart';
 import '../components/dashboard_screen_components.dart';
@@ -80,7 +84,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                         children: [
                           Expanded(
                             flex: 3,
-                            child: TableBackground(
+                            child: CustomWidgetBackground(
+                              alignment: Alignment.center,
                               widget: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Column(
@@ -92,7 +97,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                       style: CCustomTextStyles.black615,
                                     ),
                                     20.ph,
-                                    const BookingTableData(),
+                                    DashBoardBookingTableData(
+                                      bookingList: ConstantLists.bookingList,
+                                    ),
                                     20.ph,
                                     Center(
                                       child: PrimaryColorButton(
@@ -110,7 +117,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           30.pw,
                           Expanded(
                             flex: 2,
-                            child: TableBackground(
+                            child: CustomWidgetBackground(
+                              alignment: Alignment.center,
                               widget: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Column(
@@ -122,7 +130,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                       style: CCustomTextStyles.black615,
                                     ),
                                     20.ph,
-                                    const OfflineEnquiresDataTableData(),
+                                    OfflineEnquiresDataTableData(
+                                      offlineEnquiresList:
+                                          ConstantLists.offlineEnquiresList,
+                                    ),
                                     20.ph,
                                     PrimaryColorButton(
                                       width: 230,
@@ -144,9 +155,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          TableBackground(
+                          CustomWidgetBackground(
+                            alignment: Alignment.center,
                             widget: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
+                              // scrollDirection: Axis.horizontal,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -156,7 +168,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                     style: CCustomTextStyles.black615,
                                   ),
                                   20.ph,
-                                  const BookingTableData(),
+                                  DashBoardBookingTableData(
+                                    bookingList: ConstantLists.bookingList,
+                                  ),
                                   20.ph,
                                   Center(
                                     child: PrimaryColorButton(
@@ -171,7 +185,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                             ),
                           ),
                           20.ph,
-                          TableBackground(
+                          CustomWidgetBackground(
+                            alignment: Alignment.center,
                             widget: SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Column(
@@ -183,7 +198,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                     style: CCustomTextStyles.black615,
                                   ),
                                   20.ph,
-                                  const OfflineEnquiresDataTableData(),
+                                  OfflineEnquiresDataTableData(
+                                    offlineEnquiresList:
+                                        ConstantLists.offlineEnquiresList,
+                                  ),
                                   20.ph,
                                   Center(
                                     child: PrimaryColorButton(
@@ -297,6 +315,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           );
                         },
                       ),
+                      20.ph,
                     ],
                   ),
                 ),

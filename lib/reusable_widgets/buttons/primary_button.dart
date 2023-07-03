@@ -32,9 +32,11 @@ class PrimaryColorButton extends StatelessWidget {
           ),
         ),
       ),
-      child: Text(
-        text,
-        style: CCustomTextStyles.white613,
+      child: FittedBox(
+        child: Text(
+          text,
+          style: CCustomTextStyles.white613,
+        ),
       ),
     );
   }

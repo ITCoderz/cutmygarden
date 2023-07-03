@@ -29,6 +29,18 @@ class CCustomTextStyles {
     fontFamily: "Inter",
     color: CColors.blackColor,
   );
+  static const TextStyle black618 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 18,
+    fontFamily: "Inter",
+    color: CColors.blackColor,
+  );
+  static const TextStyle black630 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 30,
+    fontFamily: "Inter",
+    color: CColors.blackColor,
+  );
   static const TextStyle black610 = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 10,
@@ -47,6 +59,12 @@ class CCustomTextStyles {
     fontFamily: "Inter",
     color: CColors.whiteColor,
   );
+  static const TextStyle black613 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 13,
+    fontFamily: "Inter",
+    color: CColors.blackColor,
+  );
   static const TextStyle black609 = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 9,
@@ -58,10 +76,23 @@ class CCustomTextStyles {
     fontSize: 9,
     fontFamily: "Inter",
     color: CColors.blackColor,
-  ); static const TextStyle black410= TextStyle(
+  );
+  static const TextStyle black410 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 10,
     fontFamily: "Inter",
     color: CColors.blackColor,
+  );
+  static const TextStyle white410 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 10,
+    fontFamily: "Inter",
+    color: CColors.whiteColor,
+  );
+  static const TextStyle white610 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 10,
+    fontFamily: "Inter",
+    color: CColors.whiteColor,
   );
 }
