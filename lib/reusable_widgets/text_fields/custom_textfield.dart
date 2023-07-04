@@ -3,22 +3,24 @@ import 'package:flutter/material.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/text_styles/text_styles.dart';
 
-class DataDisplayOnlyTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validatorFunction;
   final TextEditingController textEditingController;
   final Color fillColor;
   final double width, height;
   final bool enabled;
   final Function(String)? onChangedFunction;
+  final int? maxLines;
 
-  const DataDisplayOnlyTextField({
+  const CustomTextField({
     Key? key,
     this.fillColor = CColors.imagePlaceHolderColor,
     this.width = 250,
     this.height = 35,
-    this.enabled=true,
+    this.enabled = true,
     this.onChangedFunction,
     this.validatorFunction,
+    this.maxLines,
     required this.textEditingController,
   }) : super(key: key);
 
@@ -28,6 +30,7 @@ class DataDisplayOnlyTextField extends StatelessWidget {
       height: height,
       width: width,
       child: TextFormField(
+        maxLines: maxLines,
         enabled: enabled,
         controller: textEditingController,
         textAlignVertical: TextAlignVertical.center,
@@ -35,7 +38,10 @@ class DataDisplayOnlyTextField extends StatelessWidget {
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              const EdgeInsets.symmetric(
+            vertical: 5,
+            horizontal: 10,
+          ),
           filled: true,
           fillColor: fillColor,
           enabledBorder: const OutlineInputBorder(

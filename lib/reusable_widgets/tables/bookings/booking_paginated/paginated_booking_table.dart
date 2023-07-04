@@ -20,10 +20,10 @@ class PaginatedBookingTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return PaginatedDataTable2(
       horizontalMargin: 20,
-      columnSpacing: 30,
+      columnSpacing: 15,
       wrapInCard: false,
       renderEmptyRowsInTheEnd: false,
-      minWidth: 800,
+      minWidth: 490,
       border: const TableBorder(
         horizontalInside: BorderSide(
           color: CColors.primaryColor,
@@ -35,7 +35,6 @@ class PaginatedBookingTable extends StatelessWidget {
         ),
       ),
       autoRowsToHeight: true,
-      sortArrowIcon: Icons.keyboard_arrow_up,
       controller: paginationController,
       columns: const <DataColumn>[
         DataColumn(

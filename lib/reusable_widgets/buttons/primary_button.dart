@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/text_styles/text_styles.dart';
 
-class PrimaryColorButton extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final double width, height, radius;
   final Function()? onPressFunction;
   final String text;
   final Color backgroundColor;
 
-  const PrimaryColorButton({
+  const PrimaryButton({
     super.key,
     required this.width,
     required this.height,

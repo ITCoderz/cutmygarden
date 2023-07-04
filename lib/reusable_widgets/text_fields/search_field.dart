@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
           hintText: hintText,
           filled: true,
           fillColor: fillColor,

@@ -14,9 +14,9 @@ class CColors {
   static const Color yellowAccent = Color(0xFFFBD267);
   static const Color yellowAccentTwo = Color(0xFFFFCB14);
   static const Color pinkAccent = Color(0xFFFFA0A0);
-
   static const Color redColor = Color(0xFFFF3030);
   static const Color redAccentColor = Color(0xFFFF0000);
+  static const Color redAccentColorTwo = Color(0xFFFFA0A0);
   static const Color purpleColor = Color(0xFFC41EFF);
   static const Color blueColor = Color(0xFF4285F4);
   static const Color brownColor = Color(0xFFA97A00);
@@ -25,7 +25,6 @@ class CColors {
   static const Color hintColor = Color(0xFFB1B1B1);
   static Color outerCircleColor = const Color(0xFFC4C4C4).withOpacity(0.2);
   static Color innerCircle = const Color(0xFFC4C4C4).withOpacity(0.1);
-
   static List<Color> homepageMakeFriendsGradient = [
     const Color(0xFF4B164C).withOpacity(0),
     const Color(0xFF4B164C).withOpacity(1),

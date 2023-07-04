@@ -102,7 +102,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                     ),
                                     20.ph,
                                     Center(
-                                      child: PrimaryColorButton(
+                                      child: PrimaryButton(
                                         width: 230,
                                         height: 40,
                                         text: "View Booking",
@@ -135,7 +135,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                           ConstantLists.offlineEnquiresList,
                                     ),
                                     20.ph,
-                                    PrimaryColorButton(
+                                    PrimaryButton(
                                       width: 230,
                                       height: 40,
                                       text: "View Enquires",
@@ -173,7 +173,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                   ),
                                   20.ph,
                                   Center(
-                                    child: PrimaryColorButton(
+                                    child: PrimaryButton(
                                       width: 230,
                                       height: 40,
                                       text: "View Booking",
@@ -204,7 +204,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                   ),
                                   20.ph,
                                   Center(
-                                    child: PrimaryColorButton(
+                                    child: PrimaryButton(
                                       width: 230,
                                       height: 40,
                                       text: "View Enquires",
