@@ -50,7 +50,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 10.ph,
-                CustomTextField(
+                SearchField(
                   height: 45,
                   width: context.width * 0.37,
                   textEditingController: TextEditingController(),

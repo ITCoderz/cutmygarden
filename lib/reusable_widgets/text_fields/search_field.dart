@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/text_styles/text_styles.dart';
 
-class CustomTextField extends StatelessWidget {
+class SearchField extends StatelessWidget {
   final String? Function(String?)? validatorFunction;
   final TextEditingController textEditingController;
   final Color fillColor;
@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
   final double width, height;
   final Function(String)? onChangedFunction;
 
-  const CustomTextField({
+  const SearchField({
     Key? key,
     this.fillColor = CColors.cardColor,
     this.width = 250,

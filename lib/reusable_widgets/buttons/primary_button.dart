@@ -8,6 +8,7 @@ class PrimaryButton extends StatelessWidget {
   final Function()? onPressFunction;
   final String text;
   final Color backgroundColor;
+  final TextStyle? textStyle;
 
   const PrimaryButton({
     super.key,
@@ -16,6 +17,7 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressFunction,
     required this.text,
     this.backgroundColor = CColors.primaryColor,
+    this.textStyle = CCustomTextStyles.white613,
     this.radius = 10,
   });
 
@@ -26,6 +28,8 @@ class PrimaryButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         fixedSize: Size(width, height),
+        alignment: Alignment.center,
+        padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             radius,
@@ -35,7 +39,7 @@ class PrimaryButton extends StatelessWidget {
       child: FittedBox(
         child: Text(
           text,
-          style: CCustomTextStyles.white613,
+          style: textStyle,
         ),
       ),
     );

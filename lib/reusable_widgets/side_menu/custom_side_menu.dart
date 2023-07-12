@@ -9,44 +9,25 @@ import '../../utils/colors/app_colors.dart';
 import '../../utils/text_styles/text_styles.dart';
 import '../buttons/side_menu_logout_button.dart';
 
-class CustomSideMenu extends StatefulWidget {
+class CustomSideMenu extends StatelessWidget {
   final SideMenuController sideMenu;
+  final bool isCollapsed;
+  final Function(SideMenuDisplayMode)? onDisplayModeChanged;
 
   const CustomSideMenu({
     super.key,
     required this.sideMenu,
+    required this.isCollapsed,
+    required this.onDisplayModeChanged,
   });
-
-  @override
-  State<CustomSideMenu> createState() => _CustomSideMenuState();
-}
-
-class _CustomSideMenuState extends State<CustomSideMenu> {
-  bool isCollapsed = false;
-
-  modeChanged(SideMenuDisplayMode mode) {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (mode.index == 1) {
-        setState(() {
-          isCollapsed = false;
-        });
-      } else {
-        setState(() {
-          isCollapsed = true;
-        });
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return SideMenu(
-      controller: widget.sideMenu,
+      controller: sideMenu,
       showToggle: true,
       collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
-      onDisplayModeChanged: (mode) {
-        modeChanged(mode);
-      },
+      onDisplayModeChanged: onDisplayModeChanged,
       style: SideMenuStyle(
         backgroundColor: CColors.primaryColor,
         displayMode: SideMenuDisplayMode.auto,
@@ -138,7 +119,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 0,
           title: 'Dashboard',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(Icons.grid_view_outlined),
         ),
@@ -146,7 +127,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 1,
           title: 'Booking',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.calendar,
@@ -156,7 +137,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 2,
           title: 'Enquiries',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.phoneVolume,
@@ -166,7 +147,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 3,
           title: 'Gardeners',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.userCheck,
@@ -176,7 +157,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 4,
           title: 'Clients',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.userGroup,
@@ -186,7 +167,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 5,
           title: 'Revenue',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.arrowTrendUp,
@@ -196,7 +177,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 6,
           title: 'Communication',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.message,
@@ -206,7 +187,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 7,
           title: 'Reviews',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.star,
@@ -216,7 +197,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 8,
           title: 'Report',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.globe,
@@ -226,7 +207,7 @@ class _CustomSideMenuState extends State<CustomSideMenu> {
           priority: 9,
           title: 'Settings',
           onTap: (index, _) {
-            widget.sideMenu.changePage(index);
+            sideMenu.changePage(index);
           },
           icon: const Icon(
             FontAwesomeIcons.gear,

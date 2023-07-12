@@ -46,7 +46,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 10.ph,
                 Row(
                   children: [
-                    CustomTextField(
+                    SearchField(
                       height: 45,
                       width: context.width * 0.37,
                       textEditingController: TextEditingController(),
