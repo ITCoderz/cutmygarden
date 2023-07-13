@@ -11,6 +11,7 @@ class CColors {
   static const Color whiteAccent = Color(0xFFF7F9FB);
   static const Color greenAccent = Color(0xFFBAEDBD);
   static const Color greenAccentTwo = Color(0xFF34A853);
+  static const Color greenAccentThree = Color(0xFF14A31C);
   static const Color yellowAccent = Color(0xFFFBD267);
   static const Color yellowAccentTwo = Color(0xFFFFCB14);
   static const Color pinkAccent = Color(0xFFFFA0A0);

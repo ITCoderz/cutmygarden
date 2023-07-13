@@ -28,6 +28,44 @@ class ConstantLists {
       dataValue: "2",
     ),
   ];
+  static List<DataModel> reportDataList = [
+    DataModel(
+      dataType: "Downloads",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "Website Visits",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "Users in database ",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "Gardeners",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "Instagram",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "Facebook",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "YouTube",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "TikTok",
+      dataValue: "1,000,000",
+    ),
+    DataModel(
+      dataType: "TikTok",
+      dataValue: "1,000,000",
+    ),
+  ];
   static List<GardenersModel> gardenersList = [
     GardenersModel(
         gardener: "Clive Sailsman",
@@ -476,5 +514,126 @@ class ConstantLists {
         ),
       ],
     ),
+  ];
+  static List<ReviewModel> gardenerReviewList = [
+    ReviewModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      rating: 3.5,
+    ),
+    ReviewModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      rating: 4.3,
+    ),
+    ReviewModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      rating: 4.7,
+    ),
+    ReviewModel(
+      name: "Theodore Hoffman",
+      date: "01/01/01",
+      time: "12:00pm",
+      rating: 4.5,
+    ),
+  ];
+
+  static List<String> weekDaysList = [
+    "",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  static List<JobStatus> jobStatus = [
+    JobStatus(jobOneStatus: [
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Canceled",
+      "Job Complete",
+      "Job Complete",
+    ], jobTwoStatus: [
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Canceled",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+    ], jobThreeStatus: [
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+    ], jobFourStatus: [
+      "Standard Availability",
+      "Job Complete",
+      "Job Complete",
+      "Job Complete",
+      "Job Canceled",
+      "Job Complete",
+      "Standard Availability",
+    ], jobFiveStatus: [
+      "Great Availability",
+      "Great Availability",
+      "Job Complete",
+      "Job Canceled",
+      "Job Complete",
+      "Job Complete",
+      "Great Availability",
+    ], jobSixStatus: [
+      "Great Availability",
+      "Great Availability",
+      "Great Availability",
+      "Job Complete",
+      "Job Complete",
+      "Job Canceled",
+      "Great Availability",
+    ], jobSevenStatus: [
+      "Top Availability",
+      "Top Availability",
+      "Top Availability",
+      "Top Availability",
+      "Job Canceled",
+      "Job Complete",
+      "Top Availability",
+    ], jobEightStatus: [
+      "Top Availability",
+      "Top Availability",
+      "Top Availability",
+      "Top Availability",
+      "Top Availability",
+      "Job Canceled",
+      "Top Availability",
+    ])
+  ];
+
+  static List<String> statusStringsList = [
+    "Standard Availability",
+    "Great Availability",
+    "Top Availability",
+    "Job Complete",
+    "Job Canceled",
+  ];
+  static List<ChartData> revenueData = [
+    ChartData('Mon', 180),
+    ChartData('Tue', 190),
+    ChartData('Wed', 220),
+    ChartData('Thu', 310),
+    ChartData('Fri', 320),
+    ChartData('Sat', 310),
+    ChartData('Sun', 170),
   ];
 }

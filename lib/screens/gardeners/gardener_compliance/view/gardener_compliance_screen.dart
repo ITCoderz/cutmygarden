@@ -1,4 +1,3 @@
-import 'package:cut_my_garden/reusable_widgets/text_fields/custom_textfield.dart';
 import 'package:cut_my_garden/utils/alignment/widget_alignment.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
 import 'package:cut_my_garden/utils/text_styles/text_styles.dart';
@@ -117,7 +116,6 @@ class _GardenerComplianceScreenState extends State<GardenerComplianceScreen> {
                             const LivePortalColumn(),
                             20.pw,
                             const CustomVerticalDivider(),
-
                           ],
                         ),
                       ),

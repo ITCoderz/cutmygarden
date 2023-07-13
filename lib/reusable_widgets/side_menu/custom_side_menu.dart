@@ -10,12 +10,14 @@ import '../../utils/text_styles/text_styles.dart';
 import '../buttons/side_menu_logout_button.dart';
 
 class CustomSideMenu extends StatelessWidget {
+  final bool? isNavigated;
   final SideMenuController sideMenu;
   final bool isCollapsed;
   final Function(SideMenuDisplayMode)? onDisplayModeChanged;
 
   const CustomSideMenu({
     super.key,
+    this.isNavigated,
     required this.sideMenu,
     required this.isCollapsed,
     required this.onDisplayModeChanged,

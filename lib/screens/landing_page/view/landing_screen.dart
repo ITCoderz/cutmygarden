@@ -6,10 +6,17 @@ import '../../../reusable_widgets/side_menu/custom_side_menu.dart';
 import '../../bookings/view/booking_screen.dart';
 import '../../enquiries/view/enquiries_screen.dart';
 import '../../gardeners/gardener_compliance/view/gardener_compliance_screen.dart';
+import '../../gardeners/gardener_profile/view/gardener_profile_screen.dart';
 import '../../gardeners/gardeners_landing_page/view/gardeners_landing_screen.dart';
+import '../../report/view/report_screen.dart';
 
 class LandingScreen extends StatelessWidget {
-  const LandingScreen({super.key});
+  final bool? isNavigated;
+
+  const LandingScreen({
+    super.key,
+    this.isNavigated,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +27,7 @@ class LandingScreen extends StatelessWidget {
         children: [
           Obx(() {
             return CustomSideMenu(
+              isNavigated: isNavigated,
               sideMenu: landingPageController.sideMenu,
               isCollapsed: landingPageController.isCollapsed.value,
               onDisplayModeChanged: (mode) {
@@ -34,13 +42,13 @@ class LandingScreen extends StatelessWidget {
                 landingPageController.pageChanged(pageIndex: index);
               },
               children: [
-
                 const DashBoardScreen(),
                 const BookingScreen(),
                 const EnquiriesScreen(),
                 const GardenersLandingScreen(),
+                const GardenerProfileScreen(),
                 const GardenerComplianceScreen(),
-                // const GardenersLandingScreen(),
+                const ReportScreen(),
                 Container(
                   color: Colors.white,
                   child: const Center(
