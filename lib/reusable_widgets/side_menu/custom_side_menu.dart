@@ -1,51 +1,319 @@
+import 'dart:developer';
+
+import 'package:cut_my_garden/utils/constants/constant_lists.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
-import 'package:cut_my_garden/utils/sizes/platform_sizes.dart';
-import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../generated/assets.dart';
 import '../../utils/colors/app_colors.dart';
+import '../../utils/constants/constant_strings.dart';
+import '../../utils/sizes/platform_sizes.dart';
 import '../../utils/text_styles/text_styles.dart';
 import '../buttons/side_menu_logout_button.dart';
 
-class CustomSideMenu extends StatelessWidget {
-  final bool? isNavigated;
-  final SideMenuController sideMenu;
-  final bool isCollapsed;
-  final Function(SideMenuDisplayMode)? onDisplayModeChanged;
+class CustomMenuBar extends StatelessWidget {
+  final double maxWidth;
+  final int selectedIndex;
 
-  const CustomSideMenu({
+  const CustomMenuBar({
     super.key,
-    this.isNavigated,
-    required this.sideMenu,
-    required this.isCollapsed,
-    required this.onDisplayModeChanged,
+    required this.maxWidth,
+    required this.selectedIndex,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SideMenu(
-      controller: sideMenu,
-      showToggle: true,
-      collapseWidth: PlatformSizes.maxMediumScreenWidth.round(),
-      onDisplayModeChanged: onDisplayModeChanged,
-      style: SideMenuStyle(
-        backgroundColor: CColors.primaryColor,
-        displayMode: SideMenuDisplayMode.auto,
-        hoverColor: Colors.blue[100],
-        selectedHoverColor: Color.alphaBlend(
-          Color.fromRGBO(
-            Theme.of(context).colorScheme.surfaceTint.red,
-            Theme.of(context).colorScheme.surfaceTint.green,
-            Theme.of(context).colorScheme.surfaceTint.blue,
-            0.08,
+    return AnimatedContainer(
+      duration: const Duration(
+        seconds: 1,
+      ),
+      padding: maxWidth > PlatformSizes.maxMediumScreenWidth.round()
+          ? const EdgeInsets.only(
+              left: 15,
+            )
+          : const EdgeInsets.symmetric(
+              horizontal: 5,
+            ),
+      width: maxWidth > PlatformSizes.maxMediumScreenWidth.round() ? 250 : 80,
+      height: context.height * 1,
+      decoration: const BoxDecoration(
+        color: CColors.primaryColor,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(
+            10,
           ),
-          Colors.blue[100]!,
+          topRight: Radius.circular(
+            10,
+          ),
         ),
-        itemHeight: 50,
-        itemInnerSpacing: 10,
-        itemBorderRadius: const BorderRadius.only(
+      ),
+      child: SingleChildScrollView(
+        child: maxWidth > PlatformSizes.maxMediumScreenWidth.round()
+            ? Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        Assets.dashboardAppLogo,
+                        height: 90,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: CColors.whiteColor,
+                            ),
+                          ),
+                          10.pw,
+                          const Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Theodore Hoffman",
+                                    style: CCustomTextStyles.white515,
+                                  ),
+                                ),
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Founder",
+                                    style: CCustomTextStyles.white514,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      30.pw,
+                    ],
+                  ).paddingSymmetric(
+                    horizontal: 15,
+                  ),
+                  50.ph,
+                  Flexible(
+                    child: ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: ConstantLists.menuList.length,
+                      separatorBuilder: (BuildContext context, int index) =>
+                          5.ph,
+                      itemBuilder: (BuildContext context, int index) {
+                        return SelectionTile(
+                          itemIndex: index,
+                          selectedIndex: selectedIndex,
+                          menuTitle: ConstantLists.menuList[index].menuTitle,
+                          iconData: ConstantLists.menuList[index].iconData,
+                        );
+                      },
+                    ),
+                  ),
+                  50.ph,
+                  LogOutButton(
+                    height: 50,
+                    width: 205,
+                    logOutFunction: () {},
+                  )
+                ],
+              )
+            : IntrinsicHeight(
+                child: NavigationRail(
+                  backgroundColor: CColors.primaryColor,
+                  selectedIndex: selectedIndex,
+                  useIndicator: true,
+                  onDestinationSelected: (int index) {
+                    switch (index) {
+                      case 0:
+                        {
+                          context.goNamed(
+                            ConstantStrings.dashBoardRouteName,
+                          );
+                        }
+                        break;
+
+                      case 1:
+                        {
+                          context.goNamed(
+                            ConstantStrings.bookingScreenName,
+                          );
+                        }
+                        break;
+
+                      case 2:
+                        {
+                          context.goNamed(
+                            ConstantStrings.enquiriesScreenName,
+                          );
+                        }
+                        break;
+
+                      case 3:
+                        {
+                          context.goNamed(
+                            ConstantStrings.gardenerLandingScreenName,
+                          );
+                        }
+                        break;
+                      case 4:
+                        {
+                          // Navigator.pushReplacement(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => AllCategoriesScreen(),
+                          //   ),
+                          // );
+                        }
+                        break;
+                      case 5:
+                        {
+                          // Navigator.pushReplacement(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => TopWinnersScreen(),
+                          //   ),
+                          // );
+                        }
+                        break;
+                      case 6:
+                        {
+                          // Navigator.pushReplacement(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => TopCompetitionScreen(),
+                          //   ),
+                          // );
+                        }
+                        break;
+                      case 7:
+                        {
+                          // Navigator.pushReplacement(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => AllLiveCompetitionScreen(),
+                          //   ),
+                          // );
+                        }
+                        break;
+                      case 8:
+                        {
+                          context.goNamed(
+                            ConstantStrings.reportScreenName,
+                          );
+                        }
+                        break;
+                      case 9:
+                        {
+                          // Navigator.pushReplacement(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => AllLiveCompetitionScreen(),
+                          //   ),
+                          // );
+                        }
+                        break;
+
+                      default:
+                        break;
+                    }
+                  },
+                  unselectedLabelTextStyle: CCustomTextStyles.sideMenu515,
+                  selectedLabelTextStyle: CCustomTextStyles.white515,
+                  indicatorColor: CColors.whiteColor,
+                  selectedIconTheme: const IconThemeData(
+                    color: CColors.primaryColor,
+                    size: 17,
+                  ),
+                  unselectedIconTheme: const IconThemeData(
+                    color: CColors.whiteColor,
+                    size: 17,
+                  ),
+                  labelType: NavigationRailLabelType.selected,
+                  leading: Column(
+                    children: [
+                      30.ph,
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: CColors.whiteColor,
+                        ),
+                      ),
+                      30.ph,
+                    ],
+                  ),
+                  destinations: [
+                    for (int index = 0;
+                        index < ConstantLists.menuList.length;
+                        index++) ...[
+                      NavigationRailDestination(
+                        icon: Icon(
+                          ConstantLists.menuList[index].iconData,
+                        ),
+                        selectedIcon:
+                            Icon(ConstantLists.menuList[index].iconData),
+                        label: FittedBox(
+                            child:
+                                Text(ConstantLists.menuList[index].menuTitle)),
+                      ),
+                    ]
+                  ],
+                  trailing: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      30.ph,
+                      IconButton(
+                        icon: const Icon(
+                          FontAwesomeIcons.arrowRightToBracket,
+                          color: CColors.whiteColor,
+                        ),
+                        onPressed: () {},
+                      ),
+                      30.ph,
+                    ],
+                  ),
+                ),
+              ),
+      ),
+    );
+  }
+}
+
+class SelectionTile extends StatelessWidget {
+  final int itemIndex, selectedIndex;
+  final String menuTitle;
+  final IconData? iconData;
+
+  const SelectionTile({
+    super.key,
+    required this.itemIndex,
+    required this.selectedIndex,
+    required this.menuTitle,
+    required this.iconData,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(
             10,
           ),
@@ -53,192 +321,74 @@ class CustomSideMenu extends StatelessWidget {
             10,
           ),
         ),
-        selectedColor: CColors.whiteColor,
-        selectedTitleTextStyle: CCustomTextStyles.sideMenu515,
-        selectedIconColor: CColors.primaryColor,
-        unselectedIconColor: CColors.whiteColor,
-        unselectedTitleTextStyle: CCustomTextStyles.white515,
-        compactSideMenuWidth: 70,
-        iconSize: 17,
-        decoration: const BoxDecoration(
+      ),
+      child: ListTile(
+        onTap: selectedIndex == itemIndex
+            ? null
+            : () {
+                itemIndex == 0
+                    ? context.goNamed(
+                        ConstantStrings.dashBoardRouteName,
+                      )
+                    : itemIndex == 1
+                        ? context.goNamed(
+                            ConstantStrings.bookingScreenName,
+                          )
+                        : itemIndex == 2
+                            ? context.goNamed(
+                                ConstantStrings.enquiriesScreenName,
+                              )
+                            : itemIndex == 3
+                                ? context.goNamed(
+                                    ConstantStrings.gardenerLandingScreenName,
+                                  )
+                                : itemIndex == 8
+                                    ? context.goNamed(
+                                        ConstantStrings.reportScreenName,
+                                      )
+                                    : log("No Route Defined");
+              },
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(
+            bottomLeft: Radius.circular(
               10,
             ),
-            topRight: Radius.circular(
+            topLeft: Radius.circular(
               10,
             ),
           ),
         ),
-        itemOuterPadding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
-      ),
-      title: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          isCollapsed
-              ? const SizedBox.shrink()
-              : Image.asset(
-                  Assets.dashboardAppLogo,
+        hoverColor: itemIndex == selectedIndex
+            ? Color.alphaBlend(
+                Color.fromRGBO(
+                  Theme.of(context).colorScheme.surfaceTint.red,
+                  Theme.of(context).colorScheme.surfaceTint.green,
+                  Theme.of(context).colorScheme.surfaceTint.blue,
+                  0.08,
                 ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              isCollapsed ? 10.pw : const SizedBox.shrink(),
-              Flexible(
-                child: Container(
-                  height: 70,
-                  width: 70,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: CColors.whiteColor,
-                  ),
-                ),
-              ),
-              10.pw,
-              isCollapsed
-                  ? const SizedBox.shrink()
-                  : const Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Theodore Hoffman",
-                          style: CCustomTextStyles.white515,
-                        ),
-                        Text(
-                          "Founder",
-                          style: CCustomTextStyles.white514,
-                        ),
-                      ],
-                    ),
-            ],
-          ),
-          30.ph,
-        ],
-      ),
-      items: [
-        SideMenuItem(
-          priority: 0,
-          title: 'Dashboard',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(Icons.grid_view_outlined),
-        ),
-        SideMenuItem(
-          priority: 1,
-          title: 'Booking',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.calendar,
-          ),
-        ),
-        SideMenuItem(
-          priority: 2,
-          title: 'Enquiries',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.phoneVolume,
-          ),
-        ),
-        SideMenuItem(
-          priority: 3,
-          title: 'Gardeners',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.userCheck,
-          ),
-        ),
-        SideMenuItem(
-          priority: 4,
-          title: 'Clients',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.userGroup,
-          ),
-        ),
-        SideMenuItem(
-          priority: 5,
-          title: 'Revenue',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.arrowTrendUp,
-          ),
-        ),
-        SideMenuItem(
-          priority: 6,
-          title: 'Communication',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.message,
-          ),
-        ),
-        SideMenuItem(
-          priority: 7,
-          title: 'Reviews',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.star,
-          ),
-        ),
-        SideMenuItem(
-          priority: 8,
-          title: 'Report',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.globe,
-          ),
-        ),
-        SideMenuItem(
-          priority: 9,
-          title: 'Settings',
-          onTap: (index, _) {
-            sideMenu.changePage(index);
-          },
-          icon: const Icon(
-            FontAwesomeIcons.gear,
-          ),
-        ),
-        isCollapsed
-            ? const SideMenuItem(
-                priority: 10,
-                icon: Icon(
-                  FontAwesomeIcons.arrowRightToBracket,
-                ),
+                Colors.blue[100]!,
               )
-            : SideMenuItem(
-                priority: 10,
-                builder: (context, mode) {
-                  return const SizedBox.shrink();
-                },
-              ),
-        SideMenuItem(
-          priority: 11,
-          builder: (context, mode) {
-            return const SizedBox.shrink();
-          },
+            : Colors.blue[100],
+        selected: itemIndex == selectedIndex,
+        selectedTileColor: CColors.whiteColor,
+        tileColor: CColors.primaryColor,
+        leading: Icon(
+          iconData,
+          color: itemIndex == selectedIndex
+              ? CColors.primaryColor
+              : CColors.whiteColor,
+          size: 17,
         ),
-      ],
-      footer: LogOutButton(
-        height: 50,
-        width: 205,
-        logOutFunction: () {},
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(
+            menuTitle,
+            style: itemIndex == selectedIndex
+                ? CCustomTextStyles.sideMenu515
+                : CCustomTextStyles.white515,
+          ),
+        ),
       ),
     );
   }

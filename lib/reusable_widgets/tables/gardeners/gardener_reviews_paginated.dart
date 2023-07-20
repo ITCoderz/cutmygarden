@@ -131,7 +131,6 @@ class EnquiriesPaginatedTable extends DataTableSource {
             ),
             // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
             onRatingUpdate: (rating) {
-              print(rating);
             },
           ),
         ),

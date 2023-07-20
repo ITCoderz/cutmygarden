@@ -192,6 +192,7 @@ class JobComplianceWidget extends StatelessWidget {
                                     gap: 3,
                                     textEditingController:
                                         assignedGardenerController,
+                                    enabled: true,
                                   ),
                                   10.ph,
                                   DataDisplayTile(
@@ -214,6 +215,7 @@ class JobComplianceWidget extends StatelessWidget {
                                     gap: 25,
                                     textEditingController:
                                         serviceNumberController,
+                                    enabled: true,
                                   ),
                                   10.ph,
                                   DataDisplayTile(

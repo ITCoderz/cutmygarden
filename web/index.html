@@ -24,13 +24,14 @@
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="cut_my_garden">
+    <meta name="apple-mobile-web-app-title" content="Cut My Garden">
     <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 
-    <title>cut_my_garden</title>
+    <title>Cut My Garden</title>
     <link rel="manifest" href="manifest.json">
     <script
             src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&libraries=drawing">
@@ -39,11 +40,30 @@
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
 
+
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>
+
+    <style>
+        .container{
+        width: 100vm;
+        height: 100vh;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        }
+        .indicator{
+        width:50vm
+        }
+
+
+    </style>
 </head>
-<body>
+<body style="overflow:hidden">
+<div id="loading_indicator" class="container">
+    <img class="indicator" src="web/assets/cut_my_garden_web_loading.gif"/>
+</div>
 <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -58,6 +78,17 @@
         }
       });
     });
+
+</script>
+<script>
+   window.onload = function () {
+        setTimeout(function () {
+          var loadingIndicator = document.getElementById("loading_indicator");
+          if (loadingIndicator) {
+            loadingIndicator.remove();
+          }
+        }, 10000);
+};
 
 </script>
 </body>

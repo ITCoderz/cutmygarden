@@ -1,10 +1,10 @@
-import 'package:cut_my_garden/screens/landing_page/view/landing_screen.dart';
+import 'package:cut_my_garden/routes/go_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import 'bindings/initializing_dependency.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const CutMyGardenWebApp());
 }
 
@@ -13,14 +13,13 @@ class CutMyGardenWebApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      initialBinding: InitializingDependency(),
+    return MaterialApp.router(
       title: 'Cut My Garden',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const LandingScreen(),
+      routerConfig: GoRouterHelperClass.router,
     );
   }
 }

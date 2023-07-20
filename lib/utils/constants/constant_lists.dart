@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../../models/all_enquiries_model.dart';
 import '../../models/all_gardeners_model.dart';
 import '../../models/bookings_model.dart';
@@ -5,10 +8,54 @@ import '../../models/data_model.dart';
 import '../../models/gardeneers_model.dart';
 import '../../models/offline_enquires.dart';
 import '../../models/services_names_model.dart';
+import '../../models/side_menu_model.dart';
 import '../colors/app_colors.dart';
 
 class ConstantLists {
   ConstantLists._();
+
+  static List<SideMenuModel> menuList = [
+    SideMenuModel(
+      menuTitle: "Dashboard",
+      iconData: Icons.grid_view_outlined,
+    ),
+    SideMenuModel(
+      menuTitle: "Booking",
+      iconData: FontAwesomeIcons.calendar,
+    ),
+    SideMenuModel(
+      menuTitle: "Enquiries",
+      iconData: FontAwesomeIcons.phoneVolume,
+    ),
+    SideMenuModel(
+      menuTitle: "Gardeners",
+      iconData: FontAwesomeIcons.userCheck,
+    ),
+    SideMenuModel(
+      menuTitle: "Clients",
+      iconData: FontAwesomeIcons.userGroup,
+    ),
+    SideMenuModel(
+      menuTitle: "Revenue",
+      iconData: FontAwesomeIcons.arrowTrendUp,
+    ),
+    SideMenuModel(
+      menuTitle: "Communication",
+      iconData: FontAwesomeIcons.message,
+    ),
+    SideMenuModel(
+      menuTitle: "Reviews",
+      iconData: FontAwesomeIcons.star,
+    ),
+    SideMenuModel(
+      menuTitle: "Report",
+      iconData: FontAwesomeIcons.globe,
+    ),
+    SideMenuModel(
+      menuTitle: "Settings",
+      iconData: FontAwesomeIcons.gear,
+    ),
+  ];
 
   static List<DataModel> dataList = [
     DataModel(

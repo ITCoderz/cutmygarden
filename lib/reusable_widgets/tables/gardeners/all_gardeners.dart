@@ -3,9 +3,11 @@ import 'package:cut_my_garden/utils/alignment/widget_alignment.dart';
 import 'package:cut_my_garden/utils/sizes/platform_sizes.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../models/all_gardeners_model.dart';
 import '../../../utils/colors/app_colors.dart';
+import '../../../utils/constants/constant_strings.dart';
 import '../../../utils/text_styles/text_styles.dart';
 import '../../circular_container.dart';
 
@@ -178,7 +180,11 @@ class GardenersAttributesTable extends StatelessWidget {
                 DataCell(PrimaryButton(
                   height: 25,
                   width: 75,
-                  onPressFunction: () {},
+                  onPressFunction: () {
+                    context.goNamed(
+                      ConstantStrings.gardenerComplianceScreenName,
+                    );
+                  },
                   textStyle: CCustomTextStyles.white410,
                   text: "Compliance",
                 )),

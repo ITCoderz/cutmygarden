@@ -9,7 +9,6 @@ import 'package:cut_my_garden/utils/constants/constant_strings.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
 import 'package:cut_my_garden/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../models/all_gardeners_model.dart';
@@ -214,6 +213,7 @@ class PerformanceWidget extends StatelessWidget {
         radius: const Radius.circular(20),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
+          controller: performanceScrollController,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

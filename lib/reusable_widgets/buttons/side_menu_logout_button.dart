@@ -28,9 +28,13 @@ class LogOutButton extends StatelessWidget {
           ),
         ),
       ),
-      child: const Text(
-        "Log Out",
-        style: CCustomTextStyles.sideMenu515,
+      child: const FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.center,
+        child: Text(
+          "Log Out",
+          style: CCustomTextStyles.sideMenu515,
+        ),
       ),
     );
   }
