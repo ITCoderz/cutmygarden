@@ -124,7 +124,7 @@ class _GardenerProfileScreenState extends State<GardenerProfileScreen> {
                                   Expanded(
                                     child: CustomWidgetBackground(
                                       alignment: Alignment.center,
-                                      widget: PaginatedReviewTableWidget(
+                                      widget: PaginatedGardenerReviewTableWidget(
                                         paginationController:
                                             paginationController,
                                         dataList:
@@ -182,7 +182,7 @@ class _GardenerProfileScreenState extends State<GardenerProfileScreen> {
                                   height: 520,
                                   child: CustomWidgetBackground(
                                     alignment: Alignment.center,
-                                    widget: PaginatedReviewTableWidget(
+                                    widget: PaginatedGardenerReviewTableWidget(
                                       paginationController:
                                           paginationController,
                                       dataList:
@@ -242,13 +242,13 @@ class _GardenerProfileScreenState extends State<GardenerProfileScreen> {
                                                             gardenerProfileController
                                                                 .selectedOption
                                                                 .value,
-                                                        makeFriendsFunction:
+                                                        weeklyFunction:
                                                             () {
                                                           gardenerProfileController
                                                               .toggleSelection(
                                                                   index: 0);
                                                         },
-                                                        searchPartnersFunction:
+                                                        monthlyFunction:
                                                             () {
                                                           gardenerProfileController
                                                               .toggleSelection(
@@ -322,12 +322,12 @@ class _GardenerProfileScreenState extends State<GardenerProfileScreen> {
                                                         gardenerProfileController
                                                             .selectedOption
                                                             .value,
-                                                    makeFriendsFunction: () {
+                                                    weeklyFunction: () {
                                                       gardenerProfileController
                                                           .toggleSelection(
                                                               index: 0);
                                                     },
-                                                    searchPartnersFunction: () {
+                                                    monthlyFunction: () {
                                                       gardenerProfileController
                                                           .toggleSelection(
                                                               index: 1);

@@ -39,12 +39,12 @@ class AllGardenersAttributesListModel {
   });
 }
 
-class ReviewModel {
+class GardenerReviewModel {
   String name, date, time;
 
   double rating;
 
-  ReviewModel({
+  GardenerReviewModel({
     required this.name,
     required this.date,
     required this.time,

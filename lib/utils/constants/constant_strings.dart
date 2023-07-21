@@ -35,4 +35,20 @@ class ConstantStrings {
   ///
   static const String reportScreenName = "reportScreen";
   static const String reportScreenRoute = "/reportScreen";
+
+  ///
+  static const String clientScreenName = "clientScreen";
+  static const String clientScreenRoute = "/clientScreen";
+
+  ///
+  static const String reviewScreenName = "reviewScreen";
+  static const String reviewScreenRoute = "/reviewScreen";
+
+  ///
+  static const String communicationScreenName = "communicationScreen";
+  static const String communicationScreenRoute = "/communicationScreen";
+
+  ///
+  static const String revenueScreenName = "revenueScreen";
+  static const String revenueScreenRoute = "/revenueScreen";
 }

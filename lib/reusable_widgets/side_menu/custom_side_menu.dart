@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cut_my_garden/utils/constants/constant_lists.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
 import 'package:flutter/material.dart';
@@ -172,42 +170,30 @@ class CustomMenuBar extends StatelessWidget {
                         break;
                       case 4:
                         {
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => AllCategoriesScreen(),
-                          //   ),
-                          // );
+                          context.goNamed(
+                            ConstantStrings.clientScreenName,
+                          );
                         }
                         break;
                       case 5:
                         {
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => TopWinnersScreen(),
-                          //   ),
-                          // );
+                          context.goNamed(
+                            ConstantStrings.revenueScreenName,
+                          );
                         }
                         break;
                       case 6:
                         {
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => TopCompetitionScreen(),
-                          //   ),
-                          // );
+                          context.goNamed(
+                            ConstantStrings.communicationScreenName,
+                          );
                         }
                         break;
                       case 7:
                         {
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => AllLiveCompetitionScreen(),
-                          //   ),
-                          // );
+                          context.goNamed(
+                            ConstantStrings.reviewScreenName,
+                          );
                         }
                         break;
                       case 8:
@@ -219,12 +205,7 @@ class CustomMenuBar extends StatelessWidget {
                         break;
                       case 9:
                         {
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => AllLiveCompetitionScreen(),
-                          //   ),
-                          // );
+                          debugPrint("No Route Defined: ");
                         }
                         break;
 
@@ -342,11 +323,31 @@ class SelectionTile extends StatelessWidget {
                                 ? context.goNamed(
                                     ConstantStrings.gardenerLandingScreenName,
                                   )
-                                : itemIndex == 8
+                                : itemIndex == 4
                                     ? context.goNamed(
-                                        ConstantStrings.reportScreenName,
+                                        ConstantStrings.clientScreenName,
                                       )
-                                    : log("No Route Defined");
+                                    : itemIndex == 5
+                                        ? context.goNamed(
+                                            ConstantStrings.revenueScreenName,
+                                          )
+                                        : itemIndex == 6
+                                            ? context.goNamed(
+                                                ConstantStrings
+                                                    .communicationScreenName,
+                                              )
+                                            : itemIndex == 7
+                                                ? context.goNamed(
+                                                    ConstantStrings
+                                                        .reviewScreenName,
+                                                  )
+                                                : itemIndex == 8
+                                                    ? context.goNamed(
+                                                        ConstantStrings
+                                                            .reportScreenName,
+                                                      )
+                                                    : debugPrint(
+                                                        "No Route Defined: ");
               },
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(

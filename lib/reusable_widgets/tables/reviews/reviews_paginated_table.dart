@@ -1,16 +1,15 @@
+import 'package:cut_my_garden/models/review_model.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import '../../../models/all_gardeners_model.dart';
 import '../../../utils/colors/app_colors.dart';
 import '../../../utils/text_styles/text_styles.dart';
 
-class PaginatedGardenerReviewTableWidget extends StatelessWidget {
+class PaginatedReviewTableWidget extends StatelessWidget {
   final PaginatorController? paginationController;
-  final List<GardenerReviewModel> dataList;
+  final List<ReviewModel> dataList;
 
-  const PaginatedGardenerReviewTableWidget({
+  const PaginatedReviewTableWidget({
     super.key,
     required this.paginationController,
     required this.dataList,
@@ -61,6 +60,20 @@ class PaginatedGardenerReviewTableWidget extends StatelessWidget {
         ),
         DataColumn(
           label: Text(
+            "City",
+            textAlign: TextAlign.left,
+            style: CCustomTextStyles.black610,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Gardener",
+            textAlign: TextAlign.left,
+            style: CCustomTextStyles.black610,
+          ),
+        ),
+        DataColumn(
+          label: Text(
             "Rating",
             textAlign: TextAlign.center,
             style: CCustomTextStyles.black610,
@@ -82,7 +95,7 @@ class PaginatedGardenerReviewTableWidget extends StatelessWidget {
 }
 
 class EnquiriesPaginatedTable extends DataTableSource {
-  final List<GardenerReviewModel> dataList;
+  final List<ReviewModel> dataList;
 
   EnquiriesPaginatedTable({required this.dataList});
 
@@ -109,6 +122,18 @@ class EnquiriesPaginatedTable extends DataTableSource {
           ),
         ),
         DataCell(
+          Text(
+            dataList[index].city,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
+          Text(
+            dataList[index].gardener,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
           RatingBar(
             initialRating: dataList[index].rating,
             direction: Axis.horizontal,
@@ -130,8 +155,7 @@ class EnquiriesPaginatedTable extends DataTableSource {
               ),
             ),
             // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-            onRatingUpdate: (rating) {
-            },
+            onRatingUpdate: (rating) {},
           ),
         ),
       ],

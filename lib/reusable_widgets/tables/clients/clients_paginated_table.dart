@@ -1,16 +1,15 @@
+import 'package:cut_my_garden/models/client_model.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../../../models/all_gardeners_model.dart';
-import '../../../utils/colors/app_colors.dart';
-import '../../../utils/text_styles/text_styles.dart';
+import '../../../../utils/colors/app_colors.dart';
+import '../../../../utils/text_styles/text_styles.dart';
 
-class PaginatedGardenerReviewTableWidget extends StatelessWidget {
+class PaginatedClientsTableWidget extends StatelessWidget {
   final PaginatorController? paginationController;
-  final List<GardenerReviewModel> dataList;
+  final List<ClientModel> dataList;
 
-  const PaginatedGardenerReviewTableWidget({
+  const PaginatedClientsTableWidget({
     super.key,
     required this.paginationController,
     required this.dataList,
@@ -20,10 +19,10 @@ class PaginatedGardenerReviewTableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PaginatedDataTable2(
       horizontalMargin: 20,
-      columnSpacing: 5,
+      columnSpacing: 10,
       wrapInCard: false,
       renderEmptyRowsInTheEnd: false,
-      minWidth: 500,
+      minWidth: 800,
       border: const TableBorder(
         horizontalInside: BorderSide(
           color: CColors.primaryColor,
@@ -61,8 +60,47 @@ class PaginatedGardenerReviewTableWidget extends StatelessWidget {
         ),
         DataColumn(
           label: Text(
-            "Rating",
-            textAlign: TextAlign.center,
+            "Address",
+            textAlign: TextAlign.left,
+            style: CCustomTextStyles.black610,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Post Code",
+            textAlign: TextAlign.left,
+            style: CCustomTextStyles.black610,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "City",
+            textAlign: TextAlign.left,
+            style: CCustomTextStyles.black610,
+          ),
+        ),
+        DataColumn(
+          label: Center(
+            child: Text(
+              "Frequency",
+              textAlign: TextAlign.left,
+              style: CCustomTextStyles.black610,
+            ),
+          ),
+        ),
+        DataColumn(
+          label: Center(
+            child: Text(
+              "EST Value",
+              textAlign: TextAlign.left,
+              style: CCustomTextStyles.black610,
+            ),
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Gardener",
+            textAlign: TextAlign.left,
             style: CCustomTextStyles.black610,
           ),
         ),
@@ -82,7 +120,7 @@ class PaginatedGardenerReviewTableWidget extends StatelessWidget {
 }
 
 class EnquiriesPaginatedTable extends DataTableSource {
-  final List<GardenerReviewModel> dataList;
+  final List<ClientModel> dataList;
 
   EnquiriesPaginatedTable({required this.dataList});
 
@@ -109,29 +147,39 @@ class EnquiriesPaginatedTable extends DataTableSource {
           ),
         ),
         DataCell(
-          RatingBar(
-            initialRating: dataList[index].rating,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            itemSize: 20,
-            ratingWidget: RatingWidget(
-              full: const Icon(
-                Icons.star_sharp,
-                color: CColors.yellowAccentTwo,
-              ),
-              half: const Icon(
-                Icons.star_half_sharp,
-                color: CColors.yellowAccentTwo,
-              ),
-              empty: const Icon(
-                Icons.star_border_sharp,
-                color: CColors.yellowAccentTwo,
-              ),
-            ),
-            // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-            onRatingUpdate: (rating) {
-            },
+          Text(
+            dataList[index].address,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
+          Text(
+            dataList[index].postCode,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
+          Text(
+            dataList[index].city,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
+          Text(
+            dataList[index].frequency,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
+          Text(
+            dataList[index].estValue,
+            style: CCustomTextStyles.black410,
+          ),
+        ),
+        DataCell(
+          Text(
+            dataList[index].gardener,
+            style: CCustomTextStyles.black410,
           ),
         ),
       ],

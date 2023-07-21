@@ -8,6 +8,7 @@ class CColors {
   static const Color primaryColor = Color(0xFF30524E);
   static const Color cardColor = Color(0xFFAECAC7);
   static const Color imagePlaceHolderColor = Color(0xFFD9D9D9);
+  static const Color hintTextColor = Color(0xFF5A5A5A);
   static const Color whiteAccent = Color(0xFFF7F9FB);
   static const Color greenAccent = Color(0xFFBAEDBD);
   static const Color greenAccentTwo = Color(0xFF34A853);
@@ -17,7 +18,6 @@ class CColors {
   static const Color pinkAccent = Color(0xFFFFA0A0);
   static const Color redColor = Color(0xFFFF3030);
   static const Color redAccentColor = Color(0xFFFF0000);
-  static const Color redAccentColorTwo = Color(0xFFFFA0A0);
   static const Color purpleColor = Color(0xFFC41EFF);
   static const Color blueColor = Color(0xFF4285F4);
   static const Color brownColor = Color(0xFFA97A00);

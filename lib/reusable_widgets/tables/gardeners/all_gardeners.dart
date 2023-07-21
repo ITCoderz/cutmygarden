@@ -182,7 +182,7 @@ class GardenersAttributesTable extends StatelessWidget {
                   width: 75,
                   onPressFunction: () {
                     context.goNamed(
-                      ConstantStrings.gardenerComplianceScreenName,
+                      ConstantStrings.gardenerProfileScreenName,
                     );
                   },
                   textStyle: CCustomTextStyles.white410,

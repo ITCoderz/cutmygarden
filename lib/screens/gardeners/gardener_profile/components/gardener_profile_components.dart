@@ -9,6 +9,7 @@ import 'package:cut_my_garden/utils/constants/constant_strings.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
 import 'package:cut_my_garden/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../models/all_gardeners_model.dart';
@@ -41,27 +42,27 @@ class GardenerCredentials extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "First Name",
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Second name",
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Phone number",
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Email",
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Address",
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "City / Town",
                     ),
                     10.ph,
@@ -75,37 +76,37 @@ class GardenerCredentials extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Theodore",
                       isValue: true,
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Hoffman",
                       isValue: true,
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "07376066184",
                       isValue: true,
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "info@cutmygarden.com",
                       isEmail: true,
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "46 Fieldhouse Road",
                       isValue: true,
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "Wolverhampton",
                       isValue: true,
                     ),
                     10.ph,
-                    CredentialAttributeWidget(
+                    const CredentialAttributeWidget(
                       credentialAttributeValue: "WV4 6ST",
                       isValue: true,
                     ),
@@ -117,7 +118,11 @@ class GardenerCredentials extends StatelessWidget {
             PrimaryButton(
               width: 230,
               height: 40,
-              onPressFunction: () {},
+              onPressFunction: () {
+                context.goNamed(
+                  ConstantStrings.gardenerComplianceScreenName,
+                );
+              },
               text: "Edit Profile",
             ),
           ],
@@ -529,13 +534,13 @@ class CustomCheckWidget extends StatelessWidget {
 }
 
 class ToggleWeekMonthButtonComponent extends StatelessWidget {
-  final Function()? makeFriendsFunction, searchPartnersFunction;
+  final Function()? weeklyFunction, monthlyFunction;
   final int selectedIndex;
 
   const ToggleWeekMonthButtonComponent(
       {Key? key,
-      required this.makeFriendsFunction,
-      required this.searchPartnersFunction,
+      required this.weeklyFunction,
+      required this.monthlyFunction,
       required this.selectedIndex})
       : super(key: key);
 
@@ -556,7 +561,7 @@ class ToggleWeekMonthButtonComponent extends StatelessWidget {
         children: [
           Expanded(
               child: GestureDetector(
-            onTap: makeFriendsFunction,
+            onTap: weeklyFunction,
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
@@ -579,19 +584,22 @@ class ToggleWeekMonthButtonComponent extends StatelessWidget {
           )),
           Expanded(
             child: GestureDetector(
-              onTap: searchPartnersFunction,
+              onTap: monthlyFunction,
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: selectedIndex == 1
-                        ? CColors.cardColor
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10,),
+                  color: selectedIndex == 1
+                      ? CColors.cardColor
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(
+                    10,
+                  ),
                   border: selectedIndex == 1
                       ? Border.all(color: CColors.blackColor)
                       : Border.all(
-                    color: Colors.transparent,
-                  ),),
+                          color: Colors.transparent,
+                        ),
+                ),
                 child: const Text(
                   "Monthly",
                   style: CCustomTextStyles.black417,

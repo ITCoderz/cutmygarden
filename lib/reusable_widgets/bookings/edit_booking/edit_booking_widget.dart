@@ -170,7 +170,7 @@ class EditBookingWidget extends StatelessWidget {
                                     gap: 98,
                                     textEditingController: dateController,
                                     enabled: true,
-                                    fillColor: CColors.redAccentColorTwo,
+                                    fillColor: CColors.pinkAccent,
                                   ),
                                   10.ph,
                                   DataDisplayTile(
@@ -178,7 +178,7 @@ class EditBookingWidget extends StatelessWidget {
                                     gap: 96,
                                     textEditingController: timeController,
                                     enabled: true,
-                                    fillColor: CColors.redAccentColorTwo,
+                                    fillColor: CColors.pinkAccent,
                                   ),
                                   10.ph,
                                   DataDisplayTile(
@@ -202,7 +202,7 @@ class EditBookingWidget extends StatelessWidget {
                                     gap: 89,
                                     textEditingController: hoursController,
                                     enabled: true,
-                                    fillColor: CColors.redAccentColorTwo,
+                                    fillColor: CColors.pinkAccent,
                                   ),
                                   10.ph,
                                   DataDisplayTile(
@@ -211,7 +211,7 @@ class EditBookingWidget extends StatelessWidget {
                                     textEditingController:
                                         accessToSiteController,
                                     enabled: true,
-                                    fillColor: CColors.redAccentColorTwo,
+                                    fillColor: CColors.pinkAccent,
                                   ),
                                   10.ph,
                                   DataDisplayTile(
@@ -227,7 +227,7 @@ class EditBookingWidget extends StatelessWidget {
                                     gap: 58,
                                     textEditingController: frequencyController,
                                     enabled: true,
-                                    fillColor: CColors.redAccentColorTwo,
+                                    fillColor: CColors.pinkAccent,
                                   ),
                                   10.ph,
                                   Row(
@@ -331,8 +331,7 @@ class EditBookingWidget extends StatelessWidget {
                                                 textEditingController:
                                                     lawnWidthController,
                                                 enabled: true,
-                                                fillColor:
-                                                    CColors.redAccentColorTwo,
+                                                fillColor: CColors.pinkAccent,
                                               ),
                                               10.ph,
                                               DataDisplayTile(
@@ -341,8 +340,7 @@ class EditBookingWidget extends StatelessWidget {
                                                 textEditingController:
                                                     lawnHeightController,
                                                 enabled: true,
-                                                fillColor:
-                                                    CColors.redAccentColorTwo,
+                                                fillColor: CColors.pinkAccent,
                                               ),
                                               10.ph,
                                               DataDisplayTile(
@@ -351,8 +349,7 @@ class EditBookingWidget extends StatelessWidget {
                                                 textEditingController:
                                                     growthController,
                                                 enabled: true,
-                                                fillColor:
-                                                    CColors.redAccentColorTwo,
+                                                fillColor: CColors.pinkAccent,
                                               ),
                                               10.ph,
                                               DataDisplayTile(
@@ -361,8 +358,7 @@ class EditBookingWidget extends StatelessWidget {
                                                 textEditingController:
                                                     binController,
                                                 enabled: true,
-                                                fillColor:
-                                                    CColors.redAccentColorTwo,
+                                                fillColor: CColors.pinkAccent,
                                               ),
                                               const Spacer(),
                                               Row(
@@ -438,7 +434,7 @@ class EditBookingWidget extends StatelessWidget {
                                       textEditingController:
                                           lawnWidthController,
                                       enabled: true,
-                                      fillColor: CColors.redAccentColorTwo,
+                                      fillColor: CColors.pinkAccent,
                                     ),
                                     10.ph,
                                     DataDisplayTile(
@@ -447,7 +443,7 @@ class EditBookingWidget extends StatelessWidget {
                                       textEditingController:
                                           lawnHeightController,
                                       enabled: true,
-                                      fillColor: CColors.redAccentColorTwo,
+                                      fillColor: CColors.pinkAccent,
                                     ),
                                     10.ph,
                                     DataDisplayTile(
@@ -455,7 +451,7 @@ class EditBookingWidget extends StatelessWidget {
                                       gap: 40,
                                       textEditingController: growthController,
                                       enabled: true,
-                                      fillColor: CColors.redAccentColorTwo,
+                                      fillColor: CColors.pinkAccent,
                                     ),
                                     10.ph,
                                     DataDisplayTile(
@@ -463,7 +459,7 @@ class EditBookingWidget extends StatelessWidget {
                                       gap: 67,
                                       textEditingController: binController,
                                       enabled: true,
-                                      fillColor: CColors.redAccentColorTwo,
+                                      fillColor: CColors.pinkAccent,
                                     ),
                                     15.ph,
                                     Row(
