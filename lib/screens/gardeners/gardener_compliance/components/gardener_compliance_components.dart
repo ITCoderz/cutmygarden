@@ -1,8 +1,11 @@
+import 'package:cut_my_garden/utils/constants/constant_lists.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../reusable_widgets/buttons/primary_button.dart';
+import '../../../../reusable_widgets/custom_dropdown.dart';
 import '../../../../reusable_widgets/text_fields/custom_textfield.dart';
+import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 
 class NameColumn extends StatelessWidget {
@@ -414,27 +417,82 @@ class StaffingComplianceColumn extends StatelessWidget {
           "Staffing Compliance",
           style: CCustomTextStyles.black620,
         ),
-        10.ph,
+        28.ph,
+        Container(
+          width: 200,
+          height: 35,
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 5,
+          ),
+          decoration: const BoxDecoration(
+            color: CColors.imagePlaceHolderColor,
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                10,
+              ),
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.person_outline_rounded,
+                size: 18,
+                color: CColors.blackColor,
+              ),
+              10.pw,
+              const Expanded(
+                child: Text(
+                  "Clive Sailsman",
+                  style: CCustomTextStyles.black610,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                alignment: Alignment.center,
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  Icons.close_rounded,
+                  size: 18,
+                  color: CColors.blackColor,
+                ),
+              )
+            ],
+          ),
+        ),
+        const Spacer(
+          flex: 2,
+        ),
         const Text(
-          "Full Name",
+          "Staffing Compliance",
+          style: CCustomTextStyles.black615,
+        ),
+        20.ph,
+        const Text(
+          "First Name",
           style: CCustomTextStyles.black610,
         ),
         5.ph,
         CustomTextField(
           textEditingController: TextEditingController(),
           width: 200,
+          hintText: "Enter Staff member First Name",
+          hintStyle: CCustomTextStyles.black409,
         ),
         10.ph,
         const Text(
-          "Upload",
+          "Surname",
           style: CCustomTextStyles.black610,
         ),
         5.ph,
         CustomTextField(
           textEditingController: TextEditingController(),
-          maxLines: 5,
           width: 200,
-          height: 125,
+          hintText: "Enter staff member surname ",
+          hintStyle: CCustomTextStyles.black409,
         ),
         10.ph,
         const Spacer(),
@@ -461,29 +519,14 @@ class LivePortalColumn extends StatelessWidget {
           "Live Portal",
           style: CCustomTextStyles.black620,
         ),
-        10.ph,
-        const Text(
-          "Full Name",
-          style: CCustomTextStyles.black610,
-        ),
-        5.ph,
-        CustomTextField(
-          textEditingController: TextEditingController(),
+        28.ph,
+        CustomDropDown(
+          onChanged: (val) {},
+          hintText: "Select Portal",
+          mappingList: ConstantLists.livePortalDropDownList,
           width: 200,
+          height: 32,
         ),
-        10.ph,
-        const Text(
-          "Upload",
-          style: CCustomTextStyles.black610,
-        ),
-        5.ph,
-        CustomTextField(
-          textEditingController: TextEditingController(),
-          maxLines: 5,
-          width: 200,
-          height: 125,
-        ),
-        10.ph,
         const Spacer(),
         PrimaryButton(
           text: "Save",

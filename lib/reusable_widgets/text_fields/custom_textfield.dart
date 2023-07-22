@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChangedFunction;
   final int? maxLines;
   final String? hintText;
+  final TextStyle hintStyle;
 
   const CustomTextField({
     Key? key,
@@ -19,6 +20,7 @@ class CustomTextField extends StatelessWidget {
     this.width = 250,
     this.height = 35,
     this.enabled = true,
+    this.hintStyle = CCustomTextStyles.hintStyle615,
     this.hintText,
     this.onChangedFunction,
     this.validatorFunction,
@@ -46,7 +48,7 @@ class CustomTextField extends StatelessWidget {
           filled: true,
           fillColor: fillColor,
           hintText: hintText,
-          hintStyle: CCustomTextStyles.hintStyle615,
+          hintStyle: hintStyle,
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.all(

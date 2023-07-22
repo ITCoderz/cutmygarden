@@ -13,6 +13,7 @@ import 'package:go_router/go_router.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../models/all_gardeners_model.dart';
+import '../../../../models/charts/column_chart_model.dart';
 import '../../../../reusable_widgets/tables/gardeners/all_gardeners.dart';
 
 class GardenerCredentials extends StatelessWidget {
@@ -614,7 +615,7 @@ class ToggleWeekMonthButtonComponent extends StatelessWidget {
 }
 
 class CustomDailyRevenueChart extends StatelessWidget {
-  final List<ChartData> data;
+  final List<ColumnChartData> data;
   final TooltipBehavior tooltip;
 
   const CustomDailyRevenueChart({
@@ -662,11 +663,11 @@ class CustomDailyRevenueChart extends StatelessWidget {
       ),
       tooltipBehavior: tooltip,
       backgroundColor: Colors.transparent,
-      series: <ChartSeries<ChartData, String>>[
-        ColumnSeries<ChartData, String>(
+      series: <ChartSeries<ColumnChartData, String>>[
+        ColumnSeries<ColumnChartData, String>(
           dataSource: data,
-          xValueMapper: (ChartData data, _) => data.x,
-          yValueMapper: (ChartData data, _) => data.y,
+          xValueMapper: (ColumnChartData data, _) => data.x,
+          yValueMapper: (ColumnChartData data, _) => data.y,
           name: 'Daily Revenue',
           borderRadius: BorderRadius.circular(
             10,

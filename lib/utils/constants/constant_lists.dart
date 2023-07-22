@@ -1,9 +1,11 @@
+import 'package:cut_my_garden/models/charts/area_chart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../models/all_enquiries_model.dart';
 import '../../models/all_gardeners_model.dart';
 import '../../models/bookings_model.dart';
+import '../../models/charts/column_chart_model.dart';
 import '../../models/client_model.dart';
 import '../../models/communication_model.dart';
 import '../../models/data_model.dart';
@@ -17,6 +19,14 @@ import '../colors/app_colors.dart';
 class ConstantLists {
   ConstantLists._();
 
+  ///
+  static List<String> livePortalDropDownList = [
+    "Open",
+    "Closed",
+    "Broadcast",
+  ];
+
+  ///
   static List<SideMenuModel> menuList = [
     SideMenuModel(
       menuTitle: "Dashboard",
@@ -60,6 +70,7 @@ class ConstantLists {
     ),
   ];
 
+  ///
   static List<DataModel> dataList = [
     DataModel(
       dataType: "Bookings",
@@ -78,6 +89,8 @@ class ConstantLists {
       dataValue: "2",
     ),
   ];
+
+  ///
   static List<DataModel> reportDataList = [
     DataModel(
       dataType: "Downloads",
@@ -116,6 +129,8 @@ class ConstantLists {
       dataValue: "1,000,000",
     ),
   ];
+
+  ///
   static List<DataModel> revenueDataList = [
     DataModel(
       dataType: "Daily Revenue",
@@ -150,6 +165,8 @@ class ConstantLists {
       dataValue: "£3000",
     ),
   ];
+
+  ///
   static List<GardenersModel> gardenersList = [
     GardenersModel(
         gardener: "Clive Sailsman",
@@ -167,6 +184,8 @@ class ConstantLists {
         availability: "Mon - Sat",
         compliance: "Complete"),
   ];
+
+  ///
   static List<BookingModel> bookingList = [
     BookingModel(
         name: "Theodore Hoffman",
@@ -219,6 +238,7 @@ class ConstantLists {
         status: "pending"),
   ];
 
+  ///
   static List<OfflineEnquiresModel> offlineEnquiresList = [
     OfflineEnquiresModel(
         name: "Theodore Hoffman",
@@ -256,6 +276,8 @@ class ConstantLists {
         time: "12:00pm",
         location: "Birmingham"),
   ];
+
+  ///
   static List<AllEnquiriesModel> allEnquiresList = [
     AllEnquiriesModel(
       name: "Theodore Hoffman",
@@ -336,6 +358,8 @@ class ConstantLists {
       status: "pending",
     ),
   ];
+
+  ///
   static List<ServicesNames> servicesNamesList = [
     ServicesNames(
       serviceName: "Lawn Cutting",
@@ -362,6 +386,8 @@ class ConstantLists {
       containerColor: CColors.brownColor,
     ),
   ];
+
+  ///
   static List<AllGardenerDisplayModel> allGardenersList = [
     AllGardenerDisplayModel(
       cityName: "Wolverhampton",
@@ -599,6 +625,8 @@ class ConstantLists {
       ],
     ),
   ];
+
+  ///
   static List<GardenerReviewModel> gardenerReviewList = [
     GardenerReviewModel(
       name: "Theodore Hoffman",
@@ -626,6 +654,7 @@ class ConstantLists {
     ),
   ];
 
+  ///
   static List<String> weekDaysList = [
     "",
     "Monday",
@@ -636,6 +665,8 @@ class ConstantLists {
     "Saturday",
     "Sunday",
   ];
+
+  ///
   static List<JobStatus> jobStatus = [
     JobStatus(jobOneStatus: [
       "Job Complete",
@@ -704,6 +735,7 @@ class ConstantLists {
     ])
   ];
 
+  ///
   static List<String> statusStringsList = [
     "Standard Availability",
     "Great Availability",
@@ -711,16 +743,19 @@ class ConstantLists {
     "Job Complete",
     "Job Canceled",
   ];
-  static List<ChartData> revenueData = [
-    ChartData('Mon', 180),
-    ChartData('Tue', 190),
-    ChartData('Wed', 220),
-    ChartData('Thu', 310),
-    ChartData('Fri', 320),
-    ChartData('Sat', 310),
-    ChartData('Sun', 170),
+
+  ///
+  static List<ColumnChartData> revenueData = [
+    ColumnChartData('Mon', 180),
+    ColumnChartData('Tue', 190),
+    ColumnChartData('Wed', 220),
+    ColumnChartData('Thu', 310),
+    ColumnChartData('Fri', 320),
+    ColumnChartData('Sat', 310),
+    ColumnChartData('Sun', 170),
   ];
 
+  ///
   static List<ClientModel> clientList = [
     ClientModel(
       name: "Theodore Hoffman",
@@ -756,6 +791,8 @@ class ConstantLists {
       gardener: "Clive Sailsman",
     ),
   ];
+
+  ///
   static List<ReviewModel> reviewList = [
     ReviewModel(
       name: "Theodore Hoffman",
@@ -822,6 +859,8 @@ class ConstantLists {
       rating: 3,
     ),
   ];
+
+  ///
   static List<CommentModel> commentReviewList = [
     CommentModel(
       reviewerName: "Theodore Hoffman",
@@ -857,6 +896,7 @@ class ConstantLists {
     ),
   ];
 
+  ///
   static List<ChatsModel> chatsCategoryList = [
     ChatsModel(
       chatTypeName: "Reviews",
@@ -875,116 +915,174 @@ class ConstantLists {
       noOfChats: 1,
     ),
   ];
-  static List<ChartData> monthlyRevenueData = [
-    ChartData(
+
+  ///
+  static List<ColumnChartData> monthlyRevenueData = [
+    ColumnChartData(
       'Jan',
       5,
     ),
-    ChartData(
+    ColumnChartData(
       'Feb',
       6,
     ),
-    ChartData(
+    ColumnChartData(
       'Mar',
       7,
     ),
-    ChartData(
+    ColumnChartData(
       'Apr',
       8,
     ),
-    ChartData(
+    ColumnChartData(
       'May',
       9,
     ),
-    ChartData(
+    ColumnChartData(
       'Jun',
       9,
     ),
-    ChartData(
+    ColumnChartData(
       'Jul',
       9,
     ),
-    ChartData(
+    ColumnChartData(
       'Aug',
       9,
     ),
-    ChartData(
+    ColumnChartData(
       'Sep',
       9,
     ),
-    ChartData(
+    ColumnChartData(
       'Oct',
       9,
     ),
-    ChartData(
+    ColumnChartData(
       'Nov',
       8,
     ),
-    ChartData(
+    ColumnChartData(
       'Dec',
       7,
     ),
   ];
-  static List<ChartData> clientFrequencyData = [
-    ChartData(
+
+  ///
+  static List<ColumnChartData> clientFrequencyData = [
+    ColumnChartData(
       'Weekly',
       6,
     ),
-    ChartData(
+    ColumnChartData(
       'Fortnightly',
       7,
     ),
-    ChartData(
+    ColumnChartData(
       'Monthy',
       7,
     ),
-    ChartData(
+    ColumnChartData(
       'One Off',
       8,
     ),
   ];
-  static List<ChartData> revenuePerformanceData = [
-    ChartData(
+  static List<ColumnChartData> revenuePerformanceData = [
+    ColumnChartData(
       'Wolverhampton',
       6,
     ),
-    ChartData(
+    ColumnChartData(
       'Birmingham',
       7,
     ),
-    ChartData(
+    ColumnChartData(
       'Manchester',
       7,
     ),
-    ChartData(
+    ColumnChartData(
       'London',
       8,
     ),
   ];
-  static List<ChartData> topServicesData = [
-    ChartData(
+
+  ///
+  static List<ColumnChartData> topServicesData = [
+    ColumnChartData(
       'Lawn mowing',
       0.9,
     ),
-    ChartData(
+    ColumnChartData(
       'Weeding',
       0.8,
     ),
-    ChartData(
+    ColumnChartData(
       'Hedge cutting ',
       0.4,
     ),
-    ChartData(
+    ColumnChartData(
       'Waste removal',
       0.4,
     ),
-    ChartData(
+    ColumnChartData(
       'Edging ',
       0.5,
     ),
-    ChartData(
+    ColumnChartData(
       'Reseeding',
       0.7,
+    ),
+  ];
+
+  ///
+  static List<AreaChartModel> jobsProductivity = [
+    AreaChartModel(
+      01,
+      13,
+    ),
+    AreaChartModel(
+      02,
+      7,
+    ),
+    AreaChartModel(
+      03,
+      10,
+    ),
+    AreaChartModel(
+      04,
+      17,
+    ),
+    AreaChartModel(
+      05,
+      14,
+    ),
+    AreaChartModel(
+      06,
+      18,
+    ),
+    AreaChartModel(
+      07,
+      14,
+    ),
+    AreaChartModel(
+      08,
+      13,
+    ),
+    AreaChartModel(
+      09,
+      15,
+    ),
+    AreaChartModel(
+      10,
+      16,
+    ),
+    AreaChartModel(
+      11,
+      14,
+    ),
+    AreaChartModel(
+      12,
+      20,
     ),
   ];
 }
