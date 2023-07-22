@@ -23,7 +23,6 @@ dependencies:
   data_table_2: ^2.5.5
   get: ^4.6.5
   flutter_rating_bar: ^4.0.1
-  d_chart: ^2.3.0
   syncfusion_flutter_charts: ^22.1.39
   url_strategy: ^0.2.0
 
