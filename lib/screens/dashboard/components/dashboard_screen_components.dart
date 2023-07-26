@@ -66,7 +66,8 @@ class GardenerInfoTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+      width: 230,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
           5,

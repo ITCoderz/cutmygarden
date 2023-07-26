@@ -109,3 +109,47 @@ class ImageContainer extends StatelessWidget {
     );
   }
 }
+
+class AddImageContainer extends StatelessWidget {
+  final double height, width;
+  final Function()? addImageFunction;
+
+  const AddImageContainer({
+    super.key,
+    this.width = 90,
+    this.height = 90,
+    required this.addImageFunction,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      width: width,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: CColors.blackColor.withOpacity(
+              0.25,
+            ),
+            blurRadius: 4,
+            offset: const Offset(4, 8), // Shadow position
+          ),
+        ],
+        color: CColors.cardColor,
+      ),
+      child: IconButton(
+        onPressed: addImageFunction,
+        icon: const Icon(
+          Icons.add,
+          color: CColors.whiteColor,
+        ),
+        iconSize: 30,
+      ),
+    );
+  }
+}

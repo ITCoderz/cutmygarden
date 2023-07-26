@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cut_my_garden/generated/assets.dart';
+import 'package:cut_my_garden/utils/alignment/widget_alignment.dart';
 import 'package:cut_my_garden/utils/constants/constant_lists.dart';
 import 'package:cut_my_garden/utils/gaps/gaps.dart';
 import 'package:cut_my_garden/utils/sizes/platform_sizes.dart';
@@ -313,37 +314,30 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                   style: CCustomTextStyles.black615,
                                 ),
                               ),
+
                               20.ph,
-                              GridView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: ConstantLists.gardenersList.length,
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        mainAxisExtent: 95,
-                                        crossAxisCount:
-                                            PlatformSizes.screenType(
-                                                        constraint:
-                                                            constraint) ==
-                                                    TargetPlatformEnum.web
-                                                ? 4
-                                                : 2,
-                                        crossAxisSpacing: 10.0,
-                                        mainAxisSpacing: 10.0),
-                                itemBuilder: (BuildContext context, int index) {
-                                  return GardenerInfoTiles(
-                                    gardener: ConstantLists
-                                        .gardenersList[index].gardener,
-                                    location: ConstantLists
-                                        .gardenersList[index].location,
-                                    availability: ConstantLists
-                                        .gardenersList[index].availability,
-                                    compliance: ConstantLists
-                                        .gardenersList[index].compliance,
-                                  );
-                                },
-                              ),
-                              20.ph,
+                              Wrap(
+                                runSpacing: 10,
+                                spacing: 10,
+                                children: [
+                                  for (int index = 0;
+                                  index <
+                                      ConstantLists.gardenersList.length;
+                                  index++)
+                                    ...[
+                                      GardenerInfoTiles(
+                                        gardener: ConstantLists
+                                            .gardenersList[index].gardener,
+                                        location: ConstantLists
+                                            .gardenersList[index].location,
+                                        availability: ConstantLists
+                                            .gardenersList[index].availability,
+                                        compliance: ConstantLists
+                                            .gardenersList[index].compliance,
+                                      )
+                                    ]
+                                ],
+                              ).alignWidget(alignment: Alignment.centerLeft),
                             ],
                           ),
                         ),

@@ -146,7 +146,7 @@ class _ClientsScreenState extends State<ClientsScreen> {
                                           showDialog(
                                             context: context,
                                             builder: (context) =>
-                                                AssignGardenerWidget(
+                                                AssignGardenerDialog(
                                               constraint: constraint,
                                               locationController:
                                                   clientController
@@ -169,7 +169,7 @@ class _ClientsScreenState extends State<ClientsScreen> {
                                           showDialog(
                                             context: context,
                                             builder: (context) =>
-                                                EditBookingWidget(
+                                                EditBookingDialog(
                                               constraint: constraint,
                                               name: "",
                                               address: "",
@@ -218,7 +218,7 @@ class _ClientsScreenState extends State<ClientsScreen> {
                                           showDialog(
                                             context: context,
                                             builder: (context) =>
-                                                JobComplianceWidget(
+                                                JobComplianceDialog(
                                               constraint: constraint,
                                               name: "",
                                               address: "",
@@ -309,7 +309,7 @@ class _ClientsScreenState extends State<ClientsScreen> {
                                               showDialog(
                                                 context: context,
                                                 builder: (context) =>
-                                                    AssignGardenerWidget(
+                                                    AssignGardenerDialog(
                                                   constraint: constraint,
                                                   locationController:
                                                       clientController
@@ -333,7 +333,7 @@ class _ClientsScreenState extends State<ClientsScreen> {
                                               showDialog(
                                                 context: context,
                                                 builder: (context) =>
-                                                    EditBookingWidget(
+                                                    EditBookingDialog(
                                                   constraint: constraint,
                                                   name: "",
                                                   address: "",
@@ -387,7 +387,7 @@ class _ClientsScreenState extends State<ClientsScreen> {
                                               showDialog(
                                                 context: context,
                                                 builder: (context) =>
-                                                    JobComplianceWidget(
+                                                    JobComplianceDialog(
                                                   constraint: constraint,
                                                   name: "",
                                                   address: "",

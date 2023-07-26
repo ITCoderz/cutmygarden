@@ -9,7 +9,7 @@ import '../../background_container_widgets/custom_widget_background.dart';
 import '../../buttons/primary_button.dart';
 import '../components/booking_components.dart';
 
-class EditBookingWidget extends StatelessWidget {
+class EditBookingDialog extends StatelessWidget {
   final BoxConstraints constraint;
   final String name, address, subscriber;
   final TextEditingController dateController,
@@ -26,7 +26,7 @@ class EditBookingWidget extends StatelessWidget {
       binController;
   final Function()? saveFunction, cancelFunction;
 
-  const EditBookingWidget({
+  const EditBookingDialog({
     super.key,
     required this.constraint,
     required this.name,

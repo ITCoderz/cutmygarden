@@ -124,7 +124,7 @@ class _EnquiriesScreenState extends State<EnquiriesScreen> {
                         assignGardenerFunction: () {
                           showDialog(
                             context: context,
-                            builder: (context) => AssignGardenerWidget(
+                            builder: (context) => AssignGardenerDialog(
                               constraint: constraint,
                               locationController:
                                   enquiriesController.locationController,
@@ -144,7 +144,7 @@ class _EnquiriesScreenState extends State<EnquiriesScreen> {
                         editBookingFunction: () {
                           showDialog(
                             context: context,
-                            builder: (context) => EditBookingWidget(
+                            builder: (context) => EditBookingDialog(
                               constraint: constraint,
                               name: "",
                               address: "",
@@ -185,7 +185,7 @@ class _EnquiriesScreenState extends State<EnquiriesScreen> {
                         fullClientProfileFunction: () {
                           showDialog(
                             context: context,
-                            builder: (context) => JobComplianceWidget(
+                            builder: (context) => JobComplianceDialog(
                               constraint: constraint,
                               name: "",
                               address: "",

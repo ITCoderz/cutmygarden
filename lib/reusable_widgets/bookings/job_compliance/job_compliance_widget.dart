@@ -9,7 +9,7 @@ import '../../background_container_widgets/custom_widget_background.dart';
 import '../../buttons/primary_button.dart';
 import '../components/booking_components.dart';
 
-class JobComplianceWidget extends StatelessWidget {
+class JobComplianceDialog extends StatelessWidget {
   final BoxConstraints constraint;
   final String name, address, subscriber;
   final TextEditingController dateController,
@@ -26,7 +26,7 @@ class JobComplianceWidget extends StatelessWidget {
       binController;
   final Function()? acceptComplianceFunction, declineComplianceFunction;
 
-  const JobComplianceWidget({
+  const JobComplianceDialog({
     super.key,
     required this.constraint,
     required this.name,
@@ -312,9 +312,10 @@ class JobComplianceWidget extends StatelessWidget {
                                                   for (int i = 0;
                                                       i < 5;
                                                       i++) ...[
-                                                    const ImageContainer(
+                                                    AddImageContainer(
                                                       height: 90,
                                                       width: 90,
+                                                      addImageFunction: () {},
                                                     )
                                                   ]
                                                 ],
@@ -333,9 +334,10 @@ class JobComplianceWidget extends StatelessWidget {
                                                   for (int i = 0;
                                                       i < 5;
                                                       i++) ...[
-                                                    const ImageContainer(
+                                                    AddImageContainer(
                                                       height: 90,
                                                       width: 90,
+                                                      addImageFunction: () {},
                                                     )
                                                   ]
                                                 ],

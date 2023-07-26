@@ -9,7 +9,7 @@ import '../../buttons/primary_button.dart';
 import '../../text_fields/custom_textfield.dart';
 import '../components/booking_components.dart';
 
-class AssignGardenerWidget extends StatelessWidget {
+class AssignGardenerDialog extends StatelessWidget {
   final BoxConstraints constraint;
   final TextEditingController locationController,
       assignGardenerController,
@@ -17,7 +17,7 @@ class AssignGardenerWidget extends StatelessWidget {
 
   final Function()? assignGardenerFunction, closeFunction;
 
-  const AssignGardenerWidget({
+  const AssignGardenerDialog({
     super.key,
     required this.constraint,
     required this.locationController,
